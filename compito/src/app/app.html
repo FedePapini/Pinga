@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Lista Post</h1>
+
+  <p *ngIf="posts.length > 0" class="contatore">
+    Post visualizzati: <strong>{{ postsVisibili.length }}</strong> su <strong>{{ posts.length }}</strong>
+  </p>
+
+  
+  <p *ngIf="posts.length === 0" class="messaggio-vuoto">
+    Nessun post disponibile
+  </p>
+
+  <p *ngIf="postsVisibili.length === 0 && posts.length > 0" class="messaggio-filtrato">
+    Nessun post soddisfa i criteri di visualizzazione
+  </p>
+
+  <app-post
+    *ngFor="let p of postsVisibili"
+    [titolo]="p.titolo"
+    [testo]="p.testo">
+  </app-post>
+</div>
